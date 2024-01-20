@@ -1,4 +1,4 @@
-import { Home } from "./Pages/Home/Home";
+
 import AppRoutes from "./Routes/PagesRoutes"
 
 import './App.css'

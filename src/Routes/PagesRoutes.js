@@ -3,7 +3,8 @@ import {
     Routes,
 } from "react-router-dom";
 import  Home  from "../Pages/Home/Home.js";
-import Product from "../Pages/Product/Product.js"
+import Products  from "../Pages/Products/Products.js";
+import SingleProduct from "../Pages/SingleProduct/SingleProduct.js"
 import { Navbar } from "../Components/Navbar/Navbar.js";
 
 
@@ -17,7 +18,10 @@ const AppRoutes = () => {
                     path='/' element={<Home />}
                 />
                 <Route
-                    path='/product' element={< Product/>}
+                    path='/product/:id' element={<SingleProduct />}
+                />
+                <Route
+                    path='/products' element={< Products/>}
                 />
                 {/* <Route
                     path='/contact' element={<Signup />}

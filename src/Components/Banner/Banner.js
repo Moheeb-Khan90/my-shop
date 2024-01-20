@@ -2,9 +2,10 @@ import product from '../../Data/Products.json'
 import './Banner.css'
 
 const Banner = () => {
+  
     return (
         <>
-            <div id="carouselExampleCaptions" className="carousel slide banner">
+            <div id="carouselExampleCaptions" className="carousel slide">
                 <div className="carousel-indicators">
                     {product.products.map((item, index) => (
                         <button
@@ -22,12 +23,11 @@ const Banner = () => {
                         <div
                             key={item.id}
                             className={`carousel-item ${index === 0 ? "active" : ""}`}
-                        >
-                            <img src={item.image} className="d-block w-100 img-fluid" id='banner-img' alt={item.title}
-                            />
-
+                        >                  
+                                <img src={item.image} id='banner-img' className="d-block w-100 img-fluid" alt={item.title}
+                                />
                             <div className="carousel-caption d-block d-md-block d-sm-block">
-                                <h3 id='banner-heading'>{item.title}</h3>
+                                <h2 id='banner-heading'>{item.title}</h2>
 
                             </div>
                         </div>
