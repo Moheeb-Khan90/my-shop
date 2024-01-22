@@ -24,7 +24,7 @@ export const productSlice = createSlice({
 })
 
 
-export const { setProduct, setStatus  } = productSlice.actions
+export const { setProduct, setStatus } = productSlice.actions
 
 export default productSlice.reducer
 
@@ -33,12 +33,11 @@ export const fetchProduct = () => {
     return async function fetchProductThunk(dispatch, getState) {
         dispatch(setStatus(STATUS.LOADING));
         try {
-            const res = await fetch("https://fakestoreapi.com/products?limit=18")
+            const res = await fetch("https://fakestoreapi.com/products?limit=15")
             const data = await res.json()
             dispatch(setProduct(data))
             dispatch(setStatus(STATUS.IDLE));
         } catch (error) {
-            console.log(error)
             dispatch(setStatus(STATUS.ERROR));
         }
 

@@ -1,15 +1,21 @@
 import './SingleProductCom.css';
 import { useState } from 'react';
+import Loading from '../../Components/Loading/Loading'
+import { STATUS } from '../../Store/ProductSlice'
 
-const SingleProductCom = ({ SingleProduct }) => {
+const SingleProductCom = ({ SingleProduct, status}) => {
   const [selectedButton, setSelectedButton] = useState(null);
 
   const setActive = (size) => {
     setSelectedButton(size);
   };
+  
 
   return (
     <>
+    {
+    status === STATUS.LOADING ? <Loading /> : null
+  }
       <div className='container my-5 p-4' id="product-wrapper">
         <div id="product-image">
           <img src={SingleProduct.image} alt="" />
