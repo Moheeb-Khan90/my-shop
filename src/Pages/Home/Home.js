@@ -9,6 +9,7 @@ import Product from '../../Components/ProductCards/ProductsCards'
     {/* <Navbar/> */}
     <Banner/>
     <Product/>
+    
     </>
   )
 }

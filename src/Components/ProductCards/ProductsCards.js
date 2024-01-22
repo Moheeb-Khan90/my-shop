@@ -4,6 +4,8 @@ import { fetchProduct } from '../../Store/ProductSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { STATUS } from '../../Store/ProductSlice'
+import Loading from '../Loading/Loading'
+
 
 const ProductsCards = () => {
   const dispatch = useDispatch()
@@ -13,9 +15,9 @@ const ProductsCards = () => {
     dispatch(fetchProduct())
   }, [dispatch])
 
-  if (status === STATUS.LOADING) {
-    return <h2>Loading....</h2>;
-  }
+  // if (status === STATUS.LOADING) {
+  //   return <h2>Loading....</h2>;
+  // }
 
   if (status === STATUS.ERROR) {
     return <h2>Something went wrong!</h2>;
@@ -23,7 +25,11 @@ const ProductsCards = () => {
 
   return (
     <>
-      <div className='Produc-head'>
+    {
+      status === STATUS.LOADING?<Loading/>:null
+    }
+    
+      <div className='Produc-head my-4'>
         <h1>just for you</h1>
       </div>
       <hr />

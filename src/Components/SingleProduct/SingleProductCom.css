@@ -85,6 +85,10 @@
     border-radius: 0.5rem;
 
 }
+.active-size-button{
+    background-color: var(--secondary-button);
+    color: var(--primary-text);
+}
 .size-product:hover{
     background-color: var(--secondary-button-hover);
     color: var(--primary-text);

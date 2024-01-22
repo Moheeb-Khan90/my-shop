@@ -4,6 +4,8 @@
   margin: 0;
   box-sizing: border-box;
   font-family: 'Lato', sans-serif;
+  text-decoration: none;
+  list-style: none;
 }
 :root {
   --primary-background: #fdf6f1;

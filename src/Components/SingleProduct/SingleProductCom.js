@@ -1,9 +1,15 @@
-import './SingleProductCom.css'
+import './SingleProductCom.css';
+import { useState } from 'react';
+
 const SingleProductCom = ({ SingleProduct }) => {
+  const [selectedButton, setSelectedButton] = useState(null);
+
+  const setActive = (size) => {
+    setSelectedButton(size);
+  };
 
   return (
     <>
-
       <div className='container my-5 p-4' id="product-wrapper">
         <div id="product-image">
           <img src={SingleProduct.image} alt="" />
@@ -13,7 +19,6 @@ const SingleProductCom = ({ SingleProduct }) => {
             <span>{SingleProduct.title}</span>
           </div>
           <div id="product-ratings">
-            {/* <span>ratings: {SingleProduct.rating.rate} | total count: {SingleProduct.rating.count}</span> */}
             {SingleProduct.rating && (
               <span>ratings: {SingleProduct.rating.rate} | total count: {SingleProduct.rating.count}</span>
             )}
@@ -21,32 +26,29 @@ const SingleProductCom = ({ SingleProduct }) => {
           <div id="product-price">
             <span>price: {SingleProduct.price}$</span>
           </div>
-      
-        {SingleProduct.category === "men's clothing" || SingleProduct.category === "women's clothing" ? (
-          <div id='product-size'>
-            <p>Size</p>
-            <button className='size-product' >S</button>
-            <button className='size-product'>M</button>
-            <button className='size-product'>L</button>
-          </div>
-        ) : (
-          null
-        )}
+
+          {SingleProduct.category === "men's clothing" || SingleProduct.category === "women's clothing" ? (
+            <div id='product-size'>
+              <p>Size</p>
+              <button onClick={() => setActive('S')} className={`${selectedButton === 'S' && 'active-size-button'} size-product`}>S</button>
+              <button onClick={() => setActive('M')} className={`${selectedButton === 'M' && 'active-size-button'} size-product`}>M</button>
+              <button onClick={() => setActive('L')} className={`${selectedButton === 'L' && 'active-size-button'} size-product`}>L</button>
+            </div>
+          ) : (
+            null
+          )}
           <div id="pd-button">
             <button id="pd-buyNow">buy now</button>
             <button id="pd-addCart">add to cart</button>
           </div>
-
-
         </div>
         <div id="product-description">
           <span id='pd'>description</span>
           <span>{SingleProduct.description}</span>
         </div>
       </div>
-
     </>
-  )
-}
+  );
+};
 
-export default SingleProductCom
+export default SingleProductCom;

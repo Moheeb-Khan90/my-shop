@@ -15,7 +15,7 @@ const AppRoutes = () => {
         <Navbar/>
             <Routes>
                 <Route
-                    path='/' element={<Home />}
+                    path='/'   element={<Home />}
                 />
                 <Route
                     path='/product/:id' element={<SingleProduct />}
@@ -23,12 +23,7 @@ const AppRoutes = () => {
                 <Route
                     path='/products' element={< Products/>}
                 />
-                {/* <Route
-                    path='/contact' element={<Signup />}
-                />
-                <Route
-                    path='/about' element={<Signup />}
-                /> */}
+               
             </Routes>
 
 
