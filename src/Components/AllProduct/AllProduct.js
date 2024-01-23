@@ -2,9 +2,14 @@ import './AllProduct.css'
 import { Link } from 'react-router-dom';
 import { STATUS } from '../../Store/AllProduct'
 import Loading from '../Loading/Loading';
+import Filter from '../Filter/Filter'
+import { useEffect } from 'react';
 
 const ProductsCards = ({ allProduct, status }) => {
-
+  
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [])
   return (
     <>
       {
@@ -14,6 +19,7 @@ const ProductsCards = ({ allProduct, status }) => {
         <h1>All Products</h1>
       </div>
       <hr />
+      <Filter/>
       <div id='card-wrapper'>
         <div id='card-main' >
           {allProduct.map((item) => (

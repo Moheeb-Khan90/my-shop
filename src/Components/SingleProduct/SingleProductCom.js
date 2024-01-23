@@ -1,5 +1,5 @@
 import './SingleProductCom.css';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import Loading from '../../Components/Loading/Loading'
 import { STATUS } from '../../Store/ProductSlice'
 
@@ -10,7 +10,9 @@ const SingleProductCom = ({ SingleProduct, status}) => {
     setSelectedButton(size);
   };
   
-
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [])
   return (
     <>
     {

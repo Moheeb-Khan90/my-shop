@@ -15,15 +15,16 @@
     align-items: center;
     flex-wrap: wrap;
     text-transform: capitalize;
-    color: var(--secondary-tex);
+    color: var(--secondary-text);
 }
-#card-wrapper{
+
+#card-wrapper {
     max-width: 70rem;
     margin: 0 auto;
     height: auto;
 }
+
 #card-main {
-   
     width: 100%;
     margin: 0 auto;
     height: auto;
@@ -31,8 +32,6 @@
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-
-
 }
 
 #card-body {
@@ -67,8 +66,6 @@
     align-items: center;
     flex-wrap: wrap;
     text-align: center;
-
-
 }
 
 #card-price {
@@ -115,6 +112,7 @@
 }
 
 @media only screen and (max-width: 1514px) {
+
     #card-main {
         width: 100%;
         height: auto;
@@ -125,5 +123,59 @@
         flex-wrap: wrap;
 
 
+    }
+}
+
+#more-product {
+    width: 100%;
+    height: 8rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#load-more-btn {
+    width: 50%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #42c102;
+    transition: 0.5s all;
+    cursor: pointer;
+}
+
+.load-more-link {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    color: var(--secondary-text);
+}
+
+@media only screen and (max-width: 662px) {
+    #card-body {
+        width: 6rem;
+        height: 45rem;
+        margin: 0.8rem 0;
+        border-radius: 0.6rem;
+        box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+
+    }
+
+    #load-more-btn {
+        width: 70%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #42c102;
+        transition: 0.5s all;
+        cursor: pointer;
+    }
+
+    .load-more-link {
+        font-size: 1.2rem;
+        color: var(--secondary-text);
     }
 }

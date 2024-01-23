@@ -7,6 +7,7 @@ import { FaBlenderPhone, FaEnvelope, FaFacebook, FaGoogle, FaLinkedin, FaLocatio
 const Footer = () => {
     return (
         <>
+        
             <div id="footer-main" className='my-3'>
                 <div id="footer-1">
                     <div id="logo-footer">

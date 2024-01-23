@@ -15,13 +15,13 @@ const AppRoutes = () => {
         <Navbar/>
             <Routes>
                 <Route
-                    path='/'   element={<Home />}
+                    path='/' exact  element={<Home />}
                 />
                 <Route
-                    path='/product/:id' element={<SingleProduct />}
+                    path='/product/:id'  exact element={<SingleProduct />}
                 />
                 <Route
-                    path='/products' element={< Products/>}
+                    path='/products'  exact element={< Products/>}
                 />
                
             </Routes>
