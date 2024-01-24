@@ -37,7 +37,7 @@ export const Navbar = () => {
                 </div>
                 <div className='other-list customFlex'>
                     <Link to="/" className='other-links'><FaCartPlus /></Link>
-                    <Link to="/" className='other-links'><FaUser /></Link>
+                    <Link to="/signup" className='other-links'><FaUser /></Link>
                 </div>
 
             </div>

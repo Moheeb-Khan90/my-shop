@@ -5,13 +5,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { STATUS } from '../../Store/ProductSlice'
 import Loading from '../Loading/Loading'
+import automaticScrollUp from '../../Utils/ScrollUp';
 
 
 const ProductsCards = () => {
-  useEffect(() => {
-    window.scrollTo(0,0)
-  }, [])
-  
+
+
   const dispatch = useDispatch()
   const { data, status } = useSelector((state) => state.product)
 
@@ -20,9 +19,11 @@ const ProductsCards = () => {
   }, [dispatch])
 
   if (status === STATUS.ERROR) {
-    return <h2>Something went wrong!</h2>;
+    return <h2>Conection Failed | Check your internet connection</h2>;
   }
 
+  //Scroll Up Page
+  automaticScrollUp();
   return (
     <>
       {
@@ -36,7 +37,7 @@ const ProductsCards = () => {
       <div id='card-wrapper'>
         <div id='card-main' >
           {data.map((item) => (
-            <div id="card-body"  key={item.id}>
+            <div id="card-body" key={item.id}>
               <div id="card-img">
                 <img src={item.image} alt="fd" />
               </div>
@@ -56,9 +57,9 @@ const ProductsCards = () => {
           ))}
         </div>
         <div id="more-product" className='my-2'>
-              
-                  <Link to="/products" id="load-more-btn" className="load-more-link">more product</Link>
-              
+
+          <Link to="/products" id="load-more-btn" className="load-more-link">more product</Link>
+
         </div>
       </div>
     </>

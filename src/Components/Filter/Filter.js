@@ -1,19 +1,28 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Filter.css'
 import { FaCaretDown, FaFilter } from 'react-icons/fa6'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchAllCategoryProduct } from '../../Store/AllCategory'
+import { Link } from 'react-router-dom'
 
 const Filter = () => {
-
+    const dispatch = useDispatch()
+    const { dataAllCategory } = useSelector((state) => state.allCategoryProduct)
     const [openDropDown, setOpenDropDown] = useState(' ');
+   
+    useEffect(() => {
+        dispatch(fetchAllCategoryProduct())
+    }, [dispatch])
+
+    //Toggle Dropdown
     const handleOpenDropDown = () => {
         setOpenDropDown((prevOpenDropDown) =>
             (prevOpenDropDown === '' ? 'active-dropdown-list' : '')
         );
     }
-
     return (
         <>
-                <span className='filter-title'><FaFilter className='filter-icon'/> filter</span>
+            <span className='filter-title'><FaFilter className='filter-icon' /> filter</span>
             <div id="filter-main">
                 <div className="filter-dropdown" onClick={handleOpenDropDown}>
                     <span className='filter-dropdown-title'>filter by type</span>
@@ -21,19 +30,18 @@ const Filter = () => {
                     <div id='dropdown-list' className={`dd-menu ${openDropDown}`}>
                         <div className="dropdown-items">
                             <ul className='dropdown-list'>
-                                <li className='dropdown-sub'>
-                                    <a href="/#" className='dropdown-links'> electronics</a>
-                                </li>
-                                <li className='dropdown-sub'>
-                                    <a href="/#" className='dropdown-links'>jewelery </a>
-                                </li>
-                                <li className='dropdown-sub'>
-                                    <a href="/#" className='dropdown-links'> men's clothing </a>
-                                </li>
-                                <li className='dropdown-sub'>
-                                    <a href="/#" className='dropdown-links'> women's clothing </a>
-                                </li>
-                                
+                                {
+                                    dataAllCategory
+                                    &&
+                                    dataAllCategory.map((category) => (
+                                        <li className='dropdown-sub' key={category}>
+                                            <Link to={`/category/${category}`} className='dropdown-links'>{category}</Link>
+                                        </li>
+                                    ))
+                                }
+
+
+
                             </ul>
                         </div>
                     </div>

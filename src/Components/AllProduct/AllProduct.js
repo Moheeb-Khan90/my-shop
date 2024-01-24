@@ -3,13 +3,12 @@ import { Link } from 'react-router-dom';
 import { STATUS } from '../../Store/AllProduct'
 import Loading from '../Loading/Loading';
 import Filter from '../Filter/Filter'
-import { useEffect } from 'react';
+import automaticScrollUp from '../../Utils/ScrollUp';
 
 const ProductsCards = ({ allProduct, status }) => {
-  
-  useEffect(() => {
-    window.scrollTo(0,0)
-  }, [])
+ 
+  //Scroll Up Page
+  automaticScrollUp();
   return (
     <>
       {

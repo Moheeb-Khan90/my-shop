@@ -1,5 +1,4 @@
 
-import Loading from '../../Components/Loading/Loading'
 import { fetchSingleProduct} from '../../Store/singleProductSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
@@ -8,6 +7,9 @@ import { useParams } from 'react-router-dom'
 import SingleProductCom from '../../Components/SingleProduct/SingleProductCom'
 
 const SingleProduct = () => {
+
+    
+
     const {id}=useParams()
     const dispatch = useDispatch()
     const { data, status } = useSelector((state) => state.singleProduct)

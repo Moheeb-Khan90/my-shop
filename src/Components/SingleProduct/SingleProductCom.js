@@ -1,23 +1,23 @@
 import './SingleProductCom.css';
-import { useState,useEffect } from 'react';
+import { useState} from 'react';
 import Loading from '../../Components/Loading/Loading'
 import { STATUS } from '../../Store/ProductSlice'
+import automaticScrollUp from '../../Utils/ScrollUp';
 
-const SingleProductCom = ({ SingleProduct, status}) => {
+const SingleProductCom = ({ SingleProduct, status }) => {
+
   const [selectedButton, setSelectedButton] = useState(null);
 
   const setActive = (size) => {
     setSelectedButton(size);
   };
-  
-  useEffect(() => {
-    window.scrollTo(0,0)
-  }, [])
+//Scroll Up Page
+  automaticScrollUp();
   return (
     <>
-    {
-    status === STATUS.LOADING ? <Loading /> : null
-  }
+      {
+        status === STATUS.LOADING ? <Loading /> : null
+      }
       <div className='container my-5 p-4' id="product-wrapper">
         <div id="product-image">
           <img src={SingleProduct.image} alt="" />

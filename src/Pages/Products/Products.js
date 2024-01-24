@@ -8,13 +8,14 @@ import { useEffect } from 'react'
 const Product = () => {
   const dispatch = useDispatch()
   const { data, status } = useSelector((state) => state.allProduct)
+
   useEffect(() => {
     dispatch(fetchAllProduct())
   }, [dispatch])
 
   return (
     <>
-      <AllProduct allProduct={data} status={status} />
+      <AllProduct allProduct={data} status={status}/>
     </>
   )
 }

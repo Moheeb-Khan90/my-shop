@@ -1,5 +1,5 @@
 :root {
-  --primary-background: #fdf6f1;
+  --primary-background: #ffffff;
   --primary-text: #ffffff;
   --secondary-background: #6ebe45;
   --secondary-text: #666666;
@@ -75,18 +75,13 @@
 @media only screen and (max-width: 992px) {
   #navbar {
     height: auto;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
     flex-direction: column;
-
   }
 
   #logo {
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
   }
 
@@ -117,7 +112,7 @@
   .other-links {
     color: var(--secondary-background);
     font-size: 1.8rem;
-    padding: 0.4rem 0 0.4rem 0;
+    padding: 0.9rem 0 0.9rem 0;
     color: var(--primary-background);
     margin: 0 1rem 0 1rem;
   }
@@ -128,10 +123,8 @@
   }
 
   .menuBar {
-
     display: flex;
     align-items: center;
-
   }
 
   .menuBar i {
