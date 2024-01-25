@@ -16,9 +16,9 @@ export const Navbar = () => {
     };
     return (
         <>
-            <div id='navbar'>
+            <div id='navbar'    >
                 <div id='logo' className='customFlex'>
-                   <Link to='/'><img src={Logo} alt="" /></Link>
+                   <Link to='/my-shop'><img src={Logo} alt="" /></Link>
                     <div className='menuBar'>
                         {
                             openMenu === 'active' ? <i onClick={CloseMenuIcon}><FaXmark /></i> :
@@ -30,13 +30,13 @@ export const Navbar = () => {
                 </div>
 
                 <div className={`menu-list customFlex ${openMenu}`}>
-                    <Link onClick={handleLinkClick} to="/">home</Link>
+                    <Link onClick={handleLinkClick} to="/my-shop">home</Link>
                     <Link onClick={handleLinkClick} to="/products">products</Link>
                     <Link onClick={handleLinkClick} to="/contact">contact us</Link>
                     <Link onClick={handleLinkClick} to="/about">about us</Link>
                 </div>
                 <div className='other-list customFlex'>
-                    <Link to="/" className='other-links'><FaCartPlus /></Link>
+                    <Link to="/carts" className='other-links'><FaCartPlus /></Link>
                     <Link to="/signup" className='other-links'><FaUser /></Link>
                 </div>
 

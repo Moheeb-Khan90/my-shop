@@ -1,9 +1,9 @@
 import './SingleProductCom.css';
 import { useState} from 'react';
-import Loading from '../../Components/Loading/Loading'
+import Loading from '../Loading/Loading'
 import { STATUS } from '../../Store/ProductSlice'
 import automaticScrollUp from '../../Utils/ScrollUp';
-
+import {  FaCartPlus} from "react-icons/fa6";
 const SingleProductCom = ({ SingleProduct, status }) => {
 
   const [selectedButton, setSelectedButton] = useState(null);
@@ -15,6 +15,7 @@ const SingleProductCom = ({ SingleProduct, status }) => {
   automaticScrollUp();
   return (
     <>
+    
       {
         status === STATUS.LOADING ? <Loading /> : null
       }
@@ -46,8 +47,8 @@ const SingleProductCom = ({ SingleProduct, status }) => {
             null
           )}
           <div id="pd-button">
-            <button id="pd-buyNow">buy now</button>
-            <button id="pd-addCart">add to cart</button>
+            <button id="pd-buyNow">buy now  </button>
+            <button id="pd-addCart">add to cart <FaCartPlus/></button>
           </div>
         </div>
         <div id="product-description">

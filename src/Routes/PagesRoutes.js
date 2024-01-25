@@ -9,6 +9,7 @@ import { Navbar } from "../Components/Navbar/Navbar.js";
 import Category from "../Pages/Category/Category.js";
 import Signup from "../Pages/SignUp/Signup.js";
 import Login from "../Pages/Login/Login.js";
+import Cart from "../Pages/Cart/Carts.js";
 
 
 const AppRoutes = () => {
@@ -18,7 +19,7 @@ const AppRoutes = () => {
             <Navbar />
             <Routes>
                 <Route
-                    path='/' exact element={<Home />}
+                    path='/my-shop' exact element={<Home />}
                 />
                 <Route
                     path='/product/:id' exact element={<SingleProduct />}
@@ -34,7 +35,11 @@ const AppRoutes = () => {
                 />
 
                 <Route
-                    path='/login' exact element={< Login/>}
+                    path='/login' exact element={< Login />}
+                />
+
+                <Route
+                    path='/carts'  element={< Cart />}
                 />
 
             </Routes>
