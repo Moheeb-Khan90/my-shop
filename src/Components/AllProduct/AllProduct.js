@@ -4,6 +4,7 @@ import { STATUS } from '../../Store/AllProduct'
 import Loading from '../Loading/Loading';
 import Filter from '../Filter/Filter'
 import automaticScrollUp from '../../Utils/ScrollUp';
+import { FaStar } from "react-icons/fa6";
 
 const ProductsCards = ({ allProduct, status }) => {
  
@@ -33,7 +34,15 @@ const ProductsCards = ({ allProduct, status }) => {
                 <h5 className='price'>Price - {item.price} Rs </h5>
               </div>
               <div id="rating">
-                <p>ratings: {item.rating.rate} | Count: {item.rating.count}</p>
+              {[...Array(5)].map((_, index) => (
+                  <FaStar
+                    key={index}
+                    style={{
+                      color: index < Math.floor(item.rating.rate) ? '#f39c12' : 'gray',
+                    }}
+                  />
+                ))}
+                | Count: {item.rating.count}
               </div>
               <div id="card-checkout" >
                 <Link to={`/product/${item.id}`} id='checkout-btn'>check out</Link>

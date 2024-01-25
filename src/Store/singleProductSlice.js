@@ -30,16 +30,16 @@ export default SingleproductSlice.reducer
 
 //Thunk
 export const fetchSingleProduct = (id) => {
-    console.log('slice',id)
     return async function fetchSingleProductThunk(dispatch, getState) {
         dispatch(setStatus(STATUS.LOADING));
         try {
             const res = await fetch(`https://fakestoreapi.com/products/${id}`)
             const data = await res.json()
+            console.log(data.rating.rate)
             dispatch(setProduct(data))
             dispatch(setStatus(STATUS.IDLE));
         } catch (error) {
-            console.log(error)
+            
             dispatch(setStatus(STATUS.ERROR));
         }
 

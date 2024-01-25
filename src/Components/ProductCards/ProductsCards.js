@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 import { STATUS } from '../../Store/ProductSlice'
 import Loading from '../Loading/Loading'
 import automaticScrollUp from '../../Utils/ScrollUp';
+import { FaStar } from "react-icons/fa6";
 
 
 const ProductsCards = () => {
@@ -48,7 +49,17 @@ const ProductsCards = () => {
                 <h5 className='price'>Price - {item.price} Rs </h5>
               </div>
               <div id="rating">
-                <p>ratings: {item.rating.rate} | Count: {item.rating.count}</p>
+                {[...Array(5)].map((_, index) => (
+                  <FaStar
+                    key={index}
+                    style={{
+                      color: index < Math.floor(item.rating.rate) ? '#f39c12' : 'gray',
+                    }}
+                  />
+                ))}
+                | Count: {item.rating.count}
+                {/* <p><span style={{'color':'yellow'}}><FaStar/><FaStar/><FaStar/><FaStar/><FaStar/></span>{item.rating.rate} 
+                | Count: {item.rating.count}</p> */}
               </div>
               <div id="card-checkout" >
                 <Link to={`/product/${item.id}`} id='checkout-btn'>check out</Link>

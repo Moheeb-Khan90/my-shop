@@ -1,21 +1,22 @@
 import './SingleProductCom.css';
-import { useState} from 'react';
+import { useState } from 'react';
 import Loading from '../Loading/Loading'
 import { STATUS } from '../../Store/ProductSlice'
 import automaticScrollUp from '../../Utils/ScrollUp';
-import {  FaCartPlus} from "react-icons/fa6";
-const SingleProductCom = ({ SingleProduct, status }) => {
+import { FaCartPlus } from "react-icons/fa6";
 
+const SingleProductCom = ({ SingleProduct, status }) => {
+  console.log([...Array(5)])
   const [selectedButton, setSelectedButton] = useState(null);
 
   const setActive = (size) => {
     setSelectedButton(size);
   };
-//Scroll Up Page
+  //Scroll Up Page
   automaticScrollUp();
   return (
     <>
-    
+
       {
         status === STATUS.LOADING ? <Loading /> : null
       }
@@ -28,7 +29,7 @@ const SingleProductCom = ({ SingleProduct, status }) => {
             <span>{SingleProduct.title}</span>
           </div>
           <div id="product-ratings">
-            {SingleProduct.rating && (
+            {SingleProduct.rating && ( 
               <span>ratings: {SingleProduct.rating.rate} | total count: {SingleProduct.rating.count}</span>
             )}
           </div>
@@ -48,7 +49,7 @@ const SingleProductCom = ({ SingleProduct, status }) => {
           )}
           <div id="pd-button">
             <button id="pd-buyNow">buy now  </button>
-            <button id="pd-addCart">add to cart <FaCartPlus/></button>
+            <button id="pd-addCart">add to cart <FaCartPlus /></button>
           </div>
         </div>
         <div id="product-description">
