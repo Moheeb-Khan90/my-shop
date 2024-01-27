@@ -1,13 +1,13 @@
-import { useParams } from 'react-router-dom'
 import './SpecificCategory.css'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchSpecificCategory } from '../../Store/SpecificCategorySlice'
-import { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import { STATUS } from '../../Store/SpecificCategorySlice'
-import Loading from '../Loading/Loading'
 import { Link } from 'react-router-dom'
-import automaticScrollUp from '../../Utils/ScrollUp'
 import { FaStar } from "react-icons/fa6";
+import automaticScrollUp from '../../Utils/ScrollUp'
+import Loading from '../Loading/Loading'
 const SpecificCategory = () => {
   const { ct } = useParams()
   const dispatch = useDispatch()

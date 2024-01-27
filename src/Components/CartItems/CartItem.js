@@ -1,4 +1,3 @@
-import React from 'react'
 import './CartItem.css'
 import { FaTrash } from "react-icons/fa6";
 import { removeCart } from '../../Store/AddToCart';

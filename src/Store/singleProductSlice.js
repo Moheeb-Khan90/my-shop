@@ -35,7 +35,6 @@ export const fetchSingleProduct = (id) => {
         try {
             const res = await fetch(`https://fakestoreapi.com/products/${id}`)
             const data = await res.json()
-            console.log(data.rating.rate)
             dispatch(setProduct(data))
             dispatch(setStatus(STATUS.IDLE));
         } catch (error) {

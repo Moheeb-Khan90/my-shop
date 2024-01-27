@@ -1,10 +1,10 @@
 import './AllProduct.css'
-import { Link } from 'react-router-dom';
+import { FaStar } from "react-icons/fa6";
 import { STATUS } from '../../Store/AllProduct'
+import { Link } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 import Filter from '../Filter/Filter'
 import automaticScrollUp from '../../Utils/ScrollUp';
-import { FaStar } from "react-icons/fa6";
 
 const ProductsCards = ({ allProduct, status }) => {
  

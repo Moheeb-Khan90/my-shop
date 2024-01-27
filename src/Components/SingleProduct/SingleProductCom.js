@@ -1,11 +1,11 @@
 import './SingleProductCom.css';
 import { useState } from 'react';
-import Loading from '../Loading/Loading'
 import { STATUS } from '../../Store/ProductSlice'
-import automaticScrollUp from '../../Utils/ScrollUp';
+import { addCart } from '../../Store/AddToCart';
 import { FaCartPlus, FaMinus, FaPlus } from "react-icons/fa6";
 import { useDispatch } from 'react-redux';
-import { addCart } from '../../Store/AddToCart';
+import Loading from '../Loading/Loading'
+import automaticScrollUp from '../../Utils/ScrollUp';
 
 const SingleProductCom = ({ SingleProduct, status }) => {
   const disPatch = useDispatch();

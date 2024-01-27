@@ -1,6 +1,5 @@
-import React from 'react'
-import './Footer.css'
 import logo from '../../Asset/logo.png'
+import './Footer.css'
 import { FaBlenderPhone, FaEnvelope, FaFacebook, FaGoogle, FaLinkedin, FaLocationDot, FaSquareInstagram, FaTwitter } from 'react-icons/fa6'
 
 

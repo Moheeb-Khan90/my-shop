@@ -1,12 +1,12 @@
 import './ProductsCards.css'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { fetchProduct } from '../../Store/ProductSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
 import { STATUS } from '../../Store/ProductSlice'
+import { FaStar } from "react-icons/fa6";
 import Loading from '../Loading/Loading'
 import automaticScrollUp from '../../Utils/ScrollUp';
-import { FaStar } from "react-icons/fa6";
 
 
 const ProductsCards = () => {

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
 import './Filter.css'
+import { useEffect, useState } from 'react'
 import { FaCaretDown, FaFilter } from 'react-icons/fa6'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchAllCategoryProduct } from '../../Store/AllCategory'
