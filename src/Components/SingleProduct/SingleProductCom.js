@@ -3,17 +3,42 @@ import { useState } from 'react';
 import Loading from '../Loading/Loading'
 import { STATUS } from '../../Store/ProductSlice'
 import automaticScrollUp from '../../Utils/ScrollUp';
-import { FaCartPlus } from "react-icons/fa6";
+import { FaCartPlus, FaMinus, FaPlus } from "react-icons/fa6";
+import { useDispatch } from 'react-redux';
+import { addCart } from '../../Store/AddToCart';
 
 const SingleProductCom = ({ SingleProduct, status }) => {
-  console.log([...Array(5)])
-  const [selectedButton, setSelectedButton] = useState(null);
+  const disPatch = useDispatch();
+  // Quantity Increment or Decrement Functionality
+  const [quantity, setquantity] = useState(1)
+  const decrement = () => {
+    quantity > 1 ? setquantity(quantity - 1) : setquantity(1)
+  }
+  const increment = () => {
+    setquantity(quantity + 1)
+  }
+
+  //Button 
+  const [selectedButton, setSelectedButton] = useState("S");
 
   const setActive = (size) => {
     setSelectedButton(size);
   };
   //Scroll Up Page
   automaticScrollUp();
+
+  //handle for add to cart
+  const productCart = {
+    id: SingleProduct.id,
+    name: SingleProduct.title,
+    image: SingleProduct.image,
+    price: SingleProduct.price,
+    quantity: quantity,
+    size: selectedButton
+  }
+  const addToCartHandler = () => {
+    disPatch(addCart(productCart))
+  }
   return (
     <>
 
@@ -29,7 +54,7 @@ const SingleProductCom = ({ SingleProduct, status }) => {
             <span>{SingleProduct.title}</span>
           </div>
           <div id="product-ratings">
-            {SingleProduct.rating && ( 
+            {SingleProduct.rating && (
               <span>ratings: {SingleProduct.rating.rate} | total count: {SingleProduct.rating.count}</span>
             )}
           </div>
@@ -47,9 +72,15 @@ const SingleProductCom = ({ SingleProduct, status }) => {
           ) : (
             null
           )}
+          <div id="product-quantity">
+            <p>Qty:</p>
+            <button className="product-decrement" onClick={decrement}><FaMinus /></button>
+            {quantity}
+            <button className="product-increment" onClick={increment}><FaPlus /></button>
+          </div>
           <div id="pd-button">
             <button id="pd-buyNow">buy now  </button>
-            <button id="pd-addCart">add to cart <FaCartPlus /></button>
+            <button id="pd-addCart" onClick={addToCartHandler}>add to cart <FaCartPlus /></button>
           </div>
         </div>
         <div id="product-description">

@@ -3,7 +3,10 @@ import Logo from '../../Asset/logo.png'
 import { FaBars, FaCartPlus, FaUser, FaXmark, } from "react-icons/fa6";
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 export const Navbar = () => {
+   const totalCart = useSelector((state) => state.addToCart)
+  
     const [openMenu, setOpenMenu] = useState(null)
     const ShowMenuIcon = () => {
         setOpenMenu('active')
@@ -36,7 +39,8 @@ export const Navbar = () => {
                     <Link onClick={handleLinkClick} to="/about">about us</Link>
                 </div>
                 <div className='other-list customFlex'>
-                    <Link to="/carts" className='other-links'><FaCartPlus /></Link>
+            <Link to="/carts" className='other-links'><FaCartPlus /><span className='cart-length'>({totalCart.length})</span></Link>
+            
                     <Link to="/signup" className='other-links'><FaUser /></Link>
                 </div>
 

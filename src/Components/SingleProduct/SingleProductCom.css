@@ -93,6 +93,23 @@
     background-color: var(--secondary-button-hover);
     color: var(--primary-text);
 }
+#product-quantity{
+    display: flex;
+    justify-content: flex-start;
+    align-items:center ;
+    padding: 0.2rem 0 0.2rem 0.2rem;
+    margin: 1rem 0;
+    color: var(--secondary-text);
+}
+.product-decrement, .product-increment{
+    margin: 0 1rem;
+    padding: 0.1rem 0.4rem;
+    text-align: center;
+    border-radius: 0.3rem;
+    border:1px solid rgba(0, 0, 0, 0.07); 
+    color: var(--secondary-text);
+
+}
 #product-description {
     color: var(--secondary-text);
     font-size: 1rem;

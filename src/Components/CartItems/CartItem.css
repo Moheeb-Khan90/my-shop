@@ -82,7 +82,7 @@
 
 #cart-price span {
     width: 100%;
-    padding: 0.5rem 0.5rem;
+    padding: 0.5rem 0.1rem;
     color: var(--secondary-price);
     text-transform: capitalize;
     font-weight: 600;
