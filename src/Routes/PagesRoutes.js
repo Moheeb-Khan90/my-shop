@@ -10,6 +10,8 @@ import Category from "../Pages/Category/Category.js";
 import Signup from "../Pages/SignUp/Signup.js";
 import Login from "../Pages/Login/Login.js";
 import Cart from "../Pages/Cart/Carts.js";
+import Contact from "../Pages/Contactus/Contact.js";
+import About from "../Pages/Aboutus/About.js";
 
 
 const AppRoutes = () => {
@@ -22,20 +24,26 @@ const AppRoutes = () => {
                     path='/my-shop' exact element={<Home />}
                 />
                 <Route
-                    path='/product/:id' exact element={<SingleProduct />}
+                    path='/product/:id'  element={<SingleProduct />}
                 />
                 <Route
-                    path='/products' exact element={< Products />}
+                    path='/products'  element={< Products />}
                 />
                 <Route
-                    path='/category/:ct' exact element={< Category />}
+                    path='/contact'  element={< Contact />}
                 />
                 <Route
-                    path='/signup' exact element={< Signup />}
+                    path='/about'  element={< About />}
+                />
+                <Route
+                    path='/category/:ct'  element={< Category />}
+                />
+                <Route
+                    path='/signup'  element={< Signup />}
                 />
 
                 <Route
-                    path='/login' exact element={< Login />}
+                    path='/login'  element={< Login />}
                 />
 
                 <Route

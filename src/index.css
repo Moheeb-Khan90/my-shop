@@ -6,10 +6,11 @@
   font-family: 'Lato', sans-serif;
   text-decoration: none !important;
   list-style: none;
+  /* background-color: var(--primary-background); */
   
 }
 :root {
-  --primary-background: #fdf6f1;
+  --primary-background: #ffffff;
   --primary-text: #ffffff;
   --secondary-background: #6ebe45;
   --secondary-button: #42c102;
@@ -36,4 +37,7 @@
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: var(--secondary-hover); 
+  }
+  body{
+    background-color: var(--primary-background);
   }

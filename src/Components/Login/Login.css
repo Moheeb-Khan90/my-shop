@@ -11,7 +11,9 @@
     --secondary-text: #666666;
     --secondary-outline: #b4b4b4;
 }
-
+.error-message{
+    color: red;
+}
 #loginWrapper {
     width: 100%;
     background-color: var(--form-background-color);

@@ -9,7 +9,7 @@ const Filter = () => {
     const dispatch = useDispatch()
     const { dataAllCategory } = useSelector((state) => state.allCategoryProduct)
     const [openDropDown, setOpenDropDown] = useState(' ');
-   
+ 
     useEffect(() => {
         dispatch(fetchAllCategoryProduct())
     }, [dispatch])
@@ -30,7 +30,7 @@ const Filter = () => {
                     <div id='dropdown-list' className={`dd-menu ${openDropDown}`}>
                         <div className="dropdown-items">
                             <ul className='dropdown-list'>
-                                {
+                                 {
                                     dataAllCategory
                                     &&
                                     dataAllCategory.map((category) => (
@@ -38,7 +38,8 @@ const Filter = () => {
                                             <Link to={`/category/${category}`} className='dropdown-links'>{category}</Link>
                                         </li>
                                     ))
-                                }
+                                } 
+                                
 
 
 
@@ -47,7 +48,9 @@ const Filter = () => {
                     </div>
                 </div>
                 <div className="filter-search">
-                    <input type="text" id="searchInput" placeholder="Search Title" />
+                    <input type="text" id="searchInput" placeholder="Search Title"
+                        
+                    />
                     <button id="searchButton">Search</button>
                 </div>
 

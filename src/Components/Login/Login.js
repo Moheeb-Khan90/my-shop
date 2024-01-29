@@ -1,37 +1,83 @@
 import './Login.css'
-import { Link } from 'react-router-dom'
+import { Link} from 'react-router-dom'
+import Validations from '../../Validation/validation'
 import automaticScrollUp from '../../Utils/ScrollUp';
+import { useState } from 'react';
 
 const LoginFrom = () => {
- //Scroll Up Page
- automaticScrollUp();
+
+
+  const [users, setUser] = useState({
+    email: "",
+    password: ""
+  })
+  const [error, setError] = useState({
+    email: "",
+    password: "",
+    emptyField: ""
+  })
+
+  const { email, password } = users
+  const fieldHandler = (e) => {
+    setUser({ ...users, [e.target.name]: e.target.value })
+    // initially blank
+    setError({ ...error, [e.target.name]: '' })
+
+    const emailValidator = Validations.validateEmail(email)
+    if (!emailValidator.isValid) {
+      setError((prevErrors) => ({ ...prevErrors, email: emailValidator.error }));
+    }
+    const passwordValidator = Validations.validatePassword(password)
+    setError((prevErrors) => ({ ...prevErrors, password: passwordValidator }));
+  }
+
+  const formSubmitHandler = (e) => {
+    e.preventDefault();
+
+    // Check if any field is blank
+    if (!email || !password) {
+      setError((prevErrors) => ({
+        ...prevErrors,
+        emptyField: 'All fields must be filled out.'
+      }));
+      return;
+    } else {
+      setError((prevErrors) => ({
+        ...prevErrors,
+        emptyField: ''
+      }));
+    }
+
+  };
+  //Scroll Up Page
+  automaticScrollUp();
   return (
-   
+
     <section id='loginWrapper'>
       <div className="formWrapper">
         <div className="formHeading">
+          {<p className="error-message" style={{'color':'red'}}>{error.emptyField}</p>}
           <h4>Login</h4>
           <p>Enter Login details to get access</p>
         </div>
-        <div className="inputBox">
+        <form className="inputBox" method='POST' onSubmit={formSubmitHandler}>
           <label htmlFor="email">Username Or Email Address</label>
-          <input type="email" placeholder='Username/Email address' autoComplete='off'/>
+          <input type="email" name='email' placeholder='Username/Email address' autoComplete='off' onChange={fieldHandler} value={users.email} />
 
           <label htmlFor="email">Password</label>
-          <input type="password" placeholder='Password' autoComplete='off'/>
+          <input type="password" name='password' placeholder='Password' autoComplete='off' onChange={fieldHandler} value={users.password} />
           <div className="otherForms">
-          <a href="/" className='forgetPass'>forget password?</a>
-        </div>
-        </div>
-        <div className="loginFooter">
-          <p>Don’t have an account? <Link to="/signup" className='signupBtn'>Sign Up</Link> here</p>
-          <button>Login</button>
-
-        </div>
+            <a href="/" className='forgetPass'>forget password?</a>
+          </div>
+          <div className="loginFooter">
+            <p>Don’t have an account? <Link to="/signup" className='signupBtn'>Sign Up</Link> here</p>
+            <button>Login</button>
+          </div>
+        </form>
       </div>
 
     </section>
- 
+
   )
 }
 

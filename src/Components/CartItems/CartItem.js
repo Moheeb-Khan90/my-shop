@@ -1,23 +1,23 @@
 import './CartItem.css'
 import { FaTrash } from "react-icons/fa6";
 import { removeCart } from '../../Store/AddToCart';
-import {  useSelector,useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 const CartItem = () => {
     const dispatch = useDispatch()
     const cartProduct = useSelector((state) => state.addToCart)
-    
-    const removeCartItemsHandler = (productSize) =>{
+
+    const removeCartItemsHandler = (productSize) => {
         dispatch(removeCart(productSize))
     }
     return (
         <>
-        
+
             <div id="cart-container">
                 {
 
                     cartProduct && cartProduct.map((data) => (
-                        
+
                         <div id="cart-items">
                             <div id="cart-image">
                                 <input type="checkbox" id='items-include' />
@@ -33,7 +33,7 @@ const CartItem = () => {
 
                                 <div id="cart-price">
                                     <span>price: {data.price}$</span>
-                                    <span id='cart-delete' onClick={() => removeCartItemsHandler(data.size)}><FaTrash /></span>
+                                    <span id='cart-delete' onClick={() => removeCartItemsHandler(data.quantity)}><FaTrash /></span>
                                 </div>
                             </div>
                         </div>
