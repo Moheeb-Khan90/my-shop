@@ -35,11 +35,9 @@ export const fetchSpecificCategory = (ct) => {
         try {
             const res = await fetch(`https://fakestoreapi.com/products/category/${ct}`)
             const data = await res.json()
-          
             dispatch(setSpecificCategory(data))
             dispatch(setStatus(STATUS.IDLE));
         } catch (error) {
-            console.log(error)
             dispatch(setStatus(STATUS.ERROR));
         }
 

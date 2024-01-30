@@ -10,7 +10,7 @@ const Footer = () => {
             <div id="footer-main" className='my-3'>
                 <div id="footer-1">
                     <div id="logo-footer">
-                        <img src={logo} alt="" />
+                        <img src={logo} alt="logo" />
                     </div>
                     <div id="address">
                         <FaLocationDot id='icons-address' /><span className='address'>xyz Main Street, Anytown, Pakistan</span>

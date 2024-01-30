@@ -10,7 +10,7 @@
   
 }
 :root {
-  --primary-background: #ffffff;
+  --primary-background-body: white;
   --primary-text: #ffffff;
   --secondary-background: #6ebe45;
   --secondary-button: #42c102;
@@ -39,5 +39,5 @@
     background: var(--secondary-hover); 
   }
   body{
-    background-color: var(--primary-background);
+    background-color: var(--primary-background-body);
   }

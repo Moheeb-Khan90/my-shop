@@ -21,7 +21,7 @@ const AppRoutes = () => {
             <Navbar />
             <Routes>
                 <Route
-                    path='/my-shop' exact element={<Home />}
+                    path='/' exact element={<Home />}
                 />
                 <Route
                     path='/product/:id'  element={<SingleProduct />}

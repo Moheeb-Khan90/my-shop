@@ -1,5 +1,5 @@
 :root {
-    --primary-background: #fdf6f1;
+    --primary-background-singleProduct: #ffffff;
     --primary-text: #ffffff;
     --secondary-background: #6ebe45;
     --secondary-button: #42c102;
@@ -17,6 +17,7 @@
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
+    background-color: var(--primary-background-singleProduct);
 }
 
 #product-image {
@@ -155,6 +156,11 @@
     color: var(--primary-text);
     border: transparent;
    
+}
+#cart-message{
+    background-color: var(--secondary-background);
+    color: var(--primary-text);
+    padding: 0.5rem 1rem;
 }
 
 @media only screen and (max-width: 992px) {

@@ -5,6 +5,7 @@ import Validations from '../../Validation/validation'
 import { useState } from 'react'
 
 const SignupForm = () => {
+
   const navigate = useNavigate();
   const [users, setUser] = useState({
     username: "",
@@ -18,7 +19,7 @@ const SignupForm = () => {
     email: "",
     contactNumber: "",
     password: "",
-    length: ""
+    emptyField: ""
   })
   const { username, email, contactNumber, password } = users
   const fieldHandler = (e) => {
@@ -42,37 +43,36 @@ const SignupForm = () => {
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
-
+    automaticScrollUp()
     // Check if any field is blank
     if (!username || !email || !contactNumber || !password) {
       setError((prevErrors) => ({
         ...prevErrors,
-        length: 'All fields must be filled out.'
+        emptyField: 'All fields must be filled out.'
       }));
       return;
     } else {
       setError((prevErrors) => ({
         ...prevErrors,
-        length: ''
+        emptyField: ''
       }));
-      navigate('/my-shop')
-      
+      navigate('/')
 
-   
+
+
     }
 
   };
 
-  //Scroll Up Page
-  automaticScrollUp();
+
   return (
 
     <section id='signup-Wrapper'>
       <div className="form-Wrapper">
         <div className="form-Heading">
-          {error.length && <p className="error-message">{error.length}</p>}
+          {error.emptyField && <p className="error-message">{error.emptyField}</p>}
           <h4>sign up</h4>
-          <Link to='/my-shop' className='back-link'> back to home</Link>
+          <Link to='/' className='back-link'> back to home</Link>
         </div>
         <form className="signup-inputBox" onSubmit={formSubmitHandler} method='POST'>
 

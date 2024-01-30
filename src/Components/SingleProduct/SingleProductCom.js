@@ -5,10 +5,10 @@ import { addCart } from "../../Store/AddToCart";
 import { FaCartPlus, FaMinus, FaPlus } from "react-icons/fa6";
 import { useDispatch } from "react-redux";
 import Loading from "../Loading/Loading";
-import automaticScrollUp from "../../Utils/ScrollUp";
 
 const SingleProductCom = ({ SingleProduct, status }) => {
   const disPatch = useDispatch();
+  const [addToCartMessage, setaddToCartMessage] = useState("")
   // Quantity Increment or Decrement Functionality
   const [quantity, setquantity] = useState(1);
   const decrement = () => {
@@ -20,12 +20,10 @@ const SingleProductCom = ({ SingleProduct, status }) => {
 
   //Button
   const [selectedButton, setSelectedButton] = useState("S");
-
   const setActive = (size) => {
     setSelectedButton(size);
   };
-  //Scroll Up Page
-  automaticScrollUp();
+
 
   //handle for add to cart
   const productCart = {
@@ -38,6 +36,12 @@ const SingleProductCom = ({ SingleProduct, status }) => {
   };
   const addToCartHandler = () => {
     disPatch(addCart(productCart));
+    setaddToCartMessage('1 new item(s) have been added to your cart')
+    const interval = setInterval(() => {
+      setaddToCartMessage('')
+    }, 4000);
+
+    return () => clearInterval(interval);
   };
   return (
     <>
@@ -59,7 +63,7 @@ const SingleProductCom = ({ SingleProduct, status }) => {
             )}
           </div>
           <div id="product-price">
-            <span>price: {SingleProduct.price}$</span>
+            <span>price: {SingleProduct.price}Rs</span>
           </div>
 
           {SingleProduct.category === "men's clothing" ||
@@ -105,6 +109,12 @@ const SingleProductCom = ({ SingleProduct, status }) => {
               add to cart <FaCartPlus />
             </button>
           </div>
+          {addToCartMessage &&
+            <div id="cart-message">
+          {addToCartMessage}
+          </div>
+          }
+          
         </div>
         <div id="product-description">
           <span id="pd">description</span>

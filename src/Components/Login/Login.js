@@ -1,12 +1,11 @@
 import './Login.css'
-import { Link} from 'react-router-dom'
+import { Link, useNavigate} from 'react-router-dom'
 import Validations from '../../Validation/validation'
 import automaticScrollUp from '../../Utils/ScrollUp';
 import { useState } from 'react';
 
 const LoginFrom = () => {
-
-
+  const navigate = useNavigate()
   const [users, setUser] = useState({
     email: "",
     password: ""
@@ -33,6 +32,8 @@ const LoginFrom = () => {
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
+    //Scroll Up Page
+  automaticScrollUp();
 
     // Check if any field is blank
     if (!email || !password) {
@@ -46,11 +47,11 @@ const LoginFrom = () => {
         ...prevErrors,
         emptyField: ''
       }));
+      navigate('/')
     }
 
   };
-  //Scroll Up Page
-  automaticScrollUp();
+  
   return (
 
     <section id='loginWrapper'>
@@ -67,7 +68,7 @@ const LoginFrom = () => {
           <label htmlFor="email">Password</label>
           <input type="password" name='password' placeholder='Password' autoComplete='off' onChange={fieldHandler} value={users.password} />
           <div className="otherForms">
-            <a href="/" className='forgetPass'>forget password?</a>
+            <Link to="/" className='forgetPass'>forget password?</Link>
           </div>
           <div className="loginFooter">
             <p>Don’t have an account? <Link to="/signup" className='signupBtn'>Sign Up</Link> here</p>
