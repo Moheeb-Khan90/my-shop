@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 
 import Banner from '../../Components/Banner/Banner'
 import Product from '../../Components/ProductCards/ProductsCards'
+import Filter from '../../Components/Filter/Filter'
 
 
  const Home = () => {
@@ -15,6 +16,7 @@ import Product from '../../Components/ProductCards/ProductsCards'
     <>
     {/* <Navbar/> */}
     <Banner/>
+    <Filter/>
     <Product/>
     
     </>

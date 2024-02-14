@@ -18,7 +18,7 @@ const CartItem = () => {
 
                     cartProduct && cartProduct.map((data) => (
 
-                        <div id="cart-items">
+                        <div id="cart-items" key={data.id}>
                             <div id="cart-image">
                                 <input type="checkbox" id='items-include' />
                                 <img src={data.image} alt="" />

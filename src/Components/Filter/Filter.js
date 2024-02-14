@@ -1,6 +1,6 @@
 import './Filter.css'
 import { useEffect, useState } from 'react'
-import { FaCaretDown, FaFilter } from 'react-icons/fa6'
+import { FaCaretDown} from 'react-icons/fa6'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchAllCategoryProduct } from '../../Store/AllCategory'
 import { Link } from 'react-router-dom'
@@ -22,8 +22,8 @@ const Filter = () => {
     }
     return (
         <>
-            <span className='filter-title'><FaFilter className='filter-icon' /> filter</span>
-            <div id="filter-main">
+            {/* <span className='filter-title'><FaFilter className='filter-icon' /> filter</span> */}
+            <div id="filter-main" className='my-3'>
                 <div className="filter-dropdown" onClick={handleOpenDropDown}>
                     <span className='filter-dropdown-title'>filter by type</span>
                     <span className='filter-dropdown-icon'><FaCaretDown /></span>
