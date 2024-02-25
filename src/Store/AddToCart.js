@@ -13,7 +13,7 @@ const cartSlice = createSlice({
             sessionStorage.setItem('cart',JSON.stringify(state))
         },
         removeCart(state, action){
-            const updatedState = state.filter((items) => items.quantity !== action.payload)
+            const updatedState = state.filter((items) => items.name !== action.payload)
             sessionStorage.setItem('cart', JSON.stringify(updatedState));
             return updatedState
         }

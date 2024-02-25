@@ -22,27 +22,27 @@ const SpecificCategory = () => {
   automaticScrollUp()
   return (
     <>
-      {
-            status === STATUS.LOADING ? <Loading /> : null
-          }
-          <div className='Produc-head my-4'>
-            <h1>{ct}</h1>
+     
+          <div className='filter-Product-head my-4'>
+            <span>{ct}</span>
             <Link to='/products' className='reset-link'>reset filter</Link>
           </div>
           <hr />
-       
-          <div id='card-wrapper'>
-            <div id='card-main' >
+          {
+            status === STATUS.LOADING ? <Loading /> : null
+          }
+          <div id='filter-card-wrapper'>
+            <div id='filter-card-main' >
               {data.map((item) => (
-                <div id="card-body" key={item.id}>
-                  <div id="card-img">
+                <div id="filter-card-body" key={item.id}>
+                  <div id="filter-card-img">
                     <img src={item.image} alt="fd" />
                   </div>
-                  <div id="card-title">
-                    <h6>{item.title.length > 25 ? `${item.title.slice(0, 30)}...` : item.title}</h6>
+                  <div id="filter-card-title">
+                    <span>{item.title.length > 25 ? `${item.title.slice(0, 30)}...` : item.title}</span>
                   </div>
-                  <div id="card-price" >
-                    <h5 className='price'>Price - {item.price} Rs </h5>
+                  <div id="filter-card-price" >
+                    <h5 className='filter-price'>Price - {item.price} Rs </h5>
                   </div>
                   <div id="rating">
                   {[...Array(5)].map((_, index) => (
@@ -55,8 +55,8 @@ const SpecificCategory = () => {
                 ))}
                 | Count: {item.rating.count}
                   </div>
-                  <div id="card-checkout" >
-                    <Link to={`/product/${item.id}`} id='checkout-btn'>check out</Link>
+                  <div id="filter-card-checkout" >
+                    <Link to={`/product/${item.id}`} id='filter-checkout-button'>check out</Link>
                   </div>
                 </div>
               ))}

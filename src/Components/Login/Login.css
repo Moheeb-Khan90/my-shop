@@ -1,16 +1,4 @@
-:root {
-    --primary-background: #fff;
-    --form-background-color: #ffffff;
-    --primary-text: #ffffff;
-    --secondary-background: #6ebe45;
-    --secondary-button: #42c102;
-    --secondary-backgroung2: #41aa0c;
-    --secondary-button-hover: #3daf04;
-    --secondary-price: #42c102;
-    --secondary-heading: #eaeaea;
-    --secondary-text: #666666;
-    --secondary-outline: #b4b4b4;
-}
+
 .error-message{
     color: red;
 }
@@ -25,10 +13,9 @@
 
 .formWrapper {
     width: 48rem;
-    margin-bottom: 1rem;
+   margin: 1rem 0;
     padding: 55px 60px 50px 50px;
-   
-    background-color: var(--form-background-color);
+    background-color: #ffff;
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
 
@@ -39,7 +26,7 @@
 
 .formHeading>h4 {
     text-transform: capitalize;
-    color: var(--secondary-text);
+    color: var(--navy-blue);
     font-size: 2.5rem;
     margin-bottom: 2rem;
 }
@@ -47,7 +34,7 @@
 .formHeading>p {
     margin-bottom: 15px;
     font-size: 1.1rem;
-    color: var(--secondary-text);
+    color: var(--navy-blue);
 }
 
 .inputBox {
@@ -93,7 +80,7 @@
 
 .forgetPass {
     text-transform: capitalize;
-    color: var(--secondary-button);
+    color: var(--navy-blue);
 }
 
 .loginFooter {
@@ -112,7 +99,7 @@
     font-size: 1.1rem;
     outline: none;
     border: none;
-    background-color: var(--secondary-button);
+    background-color: var(--orange);
     cursor: pointer;
 
 }
@@ -123,7 +110,7 @@
 }
 
 .signupBtn {
-    color: var(--secondary-button);
+    color: var(--navy-blue);
 }
 
 @media only screen and (max-width: 608px) {

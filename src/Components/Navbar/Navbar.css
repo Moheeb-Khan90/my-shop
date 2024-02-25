@@ -1,9 +1,3 @@
-:root {
-  --primary-background-navbar: #ffffff;
-  --primary-text: #ffffff;
-  --secondary-background: #6ebe45;
-  --secondary-text: #666666;
-}
 
 .customFlex {
   display: flex;
@@ -14,7 +8,7 @@
 #navbar {
   width: 100%;
   height: 6rem;
-  background-color: var(--primary-background-navbar);
+  background-color: var(--orange);
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -25,7 +19,8 @@
 }
 
 #logo img {
-  margin: 0 2rem 0 2rem;
+  margin: 1rem 2rem 0 2rem;
+  width: 14rem;
 
 }
 
@@ -35,7 +30,7 @@
 
 .menu-list a {
   padding: 1rem;
-  color: var(--secondary-text);
+  color: var(--off-white);
   padding: 0 1rem 0 1rem;
   text-transform: capitalize;
   font-size: 1.1rem;
@@ -49,7 +44,7 @@
   width: 0;
   height: 0.2rem;
   border-radius: 1rem;
-  background-color: var(--secondary-background);
+  background-color: var(--off-white);
   transition: 0.5s ease-out;
 }
 
@@ -63,7 +58,7 @@
   position: absolute;
 }
 .other-links {
-  color: var(--secondary-background);
+  color: var(--off-white);
   padding: 0 3rem 0 1rem;
   font-size: 1.8rem;
 }
@@ -79,15 +74,15 @@
   }
 
   #logo {
-    width: 100%;
+    width: 80%;
     display: flex;
     justify-content: space-around;
     align-items: center;
   }
 
   #logo img {
-    padding: 1rem;
-    width: 8rem;
+    padding: 0rem;
+    width: 10rem;
   }
 
   .menu-list {
@@ -110,25 +105,26 @@
   }
 
   .other-links {
-    color: var(--secondary-background);
+    color: var(--navy-blue);
     font-size: 1.8rem;
     padding: 0.9rem 0 0.9rem 0;
-    color: var(--primary-background);
     margin: 0 1rem 0 1rem;
   }
 
   .other-list {
-    background-color: var(--secondary-background);
+    background-color: var(--off-white);
     width: 100%;
+    border-bottom: 1px solid rgb(227, 227, 227);
   }
 
   .menuBar {
     display: flex;
     align-items: center;
+   
   }
 
   .menuBar i {
-    color: var(--secondary-text);
+    color: var(--off-white);
     padding: 0.1rem 0 0 1.5rem;
     font-size: 2rem;
     font-weight: 100;

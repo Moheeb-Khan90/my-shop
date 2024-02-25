@@ -38,7 +38,6 @@ export const fetchAllProduct = () => {
             dispatch(setAllProduct(data))
             dispatch(setStatus(STATUS.IDLE));
         } catch (error) {
-            console.log(error)
             dispatch(setStatus(STATUS.ERROR));
         }
 

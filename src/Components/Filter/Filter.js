@@ -1,25 +1,35 @@
 import './Filter.css'
 import { useEffect, useState } from 'react'
-import { FaCaretDown} from 'react-icons/fa6'
+import { FaCaretDown } from 'react-icons/fa6'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchAllCategoryProduct } from '../../Store/AllCategory'
+import { fetchAllProduct } from '../../Store/AllProduct'
+import { searchInputValue } from '../../Store/searchProduct'
 import { Link } from 'react-router-dom'
 
 const Filter = () => {
-    const dispatch = useDispatch()
-    const { dataAllCategory } = useSelector((state) => state.allCategoryProduct)
-    const [openDropDown, setOpenDropDown] = useState(' ');
- 
-    useEffect(() => {
-        dispatch(fetchAllCategoryProduct())
-    }, [dispatch])
 
+    const dispatch = useDispatch()
+
+    //Category Product
+    const { dataAllCategory } = useSelector((state) => state.allCategoryProduct)
+    //dropdown State
+    const [openDropDown, setOpenDropDown] = useState(' ');
     //Toggle Dropdown
     const handleOpenDropDown = () => {
         setOpenDropDown((prevOpenDropDown) =>
             (prevOpenDropDown === '' ? 'active-dropdown-list' : '')
         );
     }
+    //seach input handler
+    const searchHandle = (e) => {
+        dispatch(searchInputValue(e.target.value))
+    }
+    useEffect(() => {
+        dispatch(fetchAllProduct())
+        dispatch(fetchAllCategoryProduct())
+    }, [dispatch])
+
     return (
         <>
             {/* <span className='filter-title'><FaFilter className='filter-icon' /> filter</span> */}
@@ -30,7 +40,7 @@ const Filter = () => {
                     <div id='dropdown-list' className={`dd-menu ${openDropDown}`}>
                         <div className="dropdown-items">
                             <ul className='dropdown-list'>
-                                 {
+                                {
                                     dataAllCategory
                                     &&
                                     dataAllCategory.map((category) => (
@@ -38,20 +48,16 @@ const Filter = () => {
                                             <Link to={`/category/${category}`} className='dropdown-links'>{category}</Link>
                                         </li>
                                     ))
-                                } 
-                                
-
-
-
+                                }
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div className="filter-search">
-                    <input type="text" id="searchInput" placeholder="Search Title"
-                        
+                    <label htmlFor="searchInput" id='search-input'>Search Product</label> <br/>
+                    <input type="text" id="searchInput" placeholder="Search Product Title"
+                        onChange={searchHandle}
                     />
-                    <button id="searchButton">Search</button>
                 </div>
 
             </div>

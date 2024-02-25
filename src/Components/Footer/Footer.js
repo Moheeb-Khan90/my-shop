@@ -12,13 +12,13 @@ const Footer = () => {
                     <div id="logo-footer">
                         <img src={logo} alt="logo" />
                     </div>
-                    <div id="address">
+                    <div id="address" >
                         <FaLocationDot id='icons-address' /><span className='address'>xyz Main Street, Anytown, Pakistan</span>
                     </div>
-                    <div id="contact">
+                    <div id="contact" >
                         <FaBlenderPhone id='icons-phone' /><span className='contact'>0301-xxxxx</span>
                     </div>
-                    <div id="email">
+                    <div id="email" >
                         <FaEnvelope id='icons-mail' /><span className='email'>xyz@gmail.com</span>
                     </div>
                 </div>

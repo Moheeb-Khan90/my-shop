@@ -9,34 +9,26 @@
   /* background-color: var(--primary-background); */
   
 }
-:root {
-  --primary-background-body: white;
-  --primary-text: #ffffff;
-  --secondary-background: #6ebe45;
-  --secondary-button: #42c102;
-  --secondary-hover: #42c102;
-  --secondary-heading: #eaeaea;
-  --secondary-text: #666666;
-}
+
   ::-webkit-scrollbar {
     width: 0.5rem;
   }
   
   /* Track */
   ::-webkit-scrollbar-track {
-    background-color: var(--primary-background);
+    background-color: #ededed;
   }
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: var(--secondary-background); 
+    background: rgb(253, 140, 99); 
     transition: all 0.5s;
    
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--secondary-hover); 
+    background: rgb(255, 85, 23); 
   }
   body{
     background-color: var(--primary-background-body);

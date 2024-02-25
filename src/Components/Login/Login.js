@@ -1,5 +1,5 @@
 import './Login.css'
-import { Link, useNavigate} from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Validations from '../../Validation/validation'
 import automaticScrollUp from '../../Utils/ScrollUp';
 import { useState } from 'react';
@@ -33,7 +33,7 @@ const LoginFrom = () => {
   const formSubmitHandler = (e) => {
     e.preventDefault();
     //Scroll Up Page
-  automaticScrollUp();
+    automaticScrollUp();
 
     // Check if any field is blank
     if (!email || !password) {
@@ -51,13 +51,13 @@ const LoginFrom = () => {
     }
 
   };
-  
+
   return (
 
     <section id='loginWrapper'>
       <div className="formWrapper">
         <div className="formHeading">
-          {<p className="error-message" style={{'color':'red'}}>{error.emptyField}</p>}
+          {<p className="error-message" style={{ 'color': 'red' }}>{error.emptyField}</p>}
           <h4>Login</h4>
           <p>Enter Login details to get access</p>
         </div>

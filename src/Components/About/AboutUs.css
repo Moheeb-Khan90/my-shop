@@ -1,17 +1,4 @@
-:root {
-    --primary-background: #fff;
-    --form-background-color: #ffffff;
-    --primary-text: #ffffff;
-    --secondary-background: #6ebe45;
-    --secondary-button: #42c102;
-    --secondary-backgroung2: #41aa0c;
-    --secondary-button-hover: #3daf04;
-    --secondary-price: #42c102;
-    --secondary-heading: #eaeaea;
-    --secondary-about-mainHeading: #42c102;
-    --secondary-text: #666666;
-    --secondary-outline: #b4b4b4;
-}
+
 
 #about-main-section{
 
@@ -21,5 +8,7 @@
 
 }
 #about-main-heading{
-    color: var(--secondary-about-mainHeading);
+    color: var(--orange);
+    font-weight: bold;
+    letter-spacing: 0.1rem;
 }

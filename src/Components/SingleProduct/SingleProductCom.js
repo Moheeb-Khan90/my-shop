@@ -3,12 +3,14 @@ import { useState } from "react";
 import { STATUS } from "../../Store/ProductSlice";
 import { addCart } from "../../Store/AddToCart";
 import { FaCartPlus, FaMinus, FaPlus } from "react-icons/fa6";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Loading from "../Loading/Loading";
 
 const SingleProductCom = ({ SingleProduct, status }) => {
   const disPatch = useDispatch();
+  const cartProduct = useSelector((state) => state.addToCart); 
   const [addToCartMessage, setaddToCartMessage] = useState("")
+
   // Quantity Increment or Decrement Functionality
   const [quantity, setquantity] = useState(1);
   const decrement = () => {
@@ -30,19 +32,26 @@ const SingleProductCom = ({ SingleProduct, status }) => {
     id: SingleProduct.id,
     name: SingleProduct.title,
     image: SingleProduct.image,
-    price: SingleProduct.price,
+    price:quantity*SingleProduct.price,
     quantity: quantity,
     size: selectedButton,
   };
   const addToCartHandler = () => {
-    disPatch(addCart(productCart));
-    setaddToCartMessage('1 new item(s) have been added to your cart')
-    const interval = setInterval(() => {
-      setaddToCartMessage('')
-    }, 4000);
+    const isProductInCart = cartProduct.some(item => item.name === productCart.name);
+    if (isProductInCart) {
+      setaddToCartMessage('added alreadt')
+      return false
+    } else {
+      disPatch(addCart(productCart));
+      setaddToCartMessage('1 new item(s) have been added to your cart')
+      const interval = setInterval(() => {
+        setaddToCartMessage('')
+      }, 4000);
 
-    return () => clearInterval(interval);
-  };
+      return () => clearInterval(interval);
+    };
+  }
+
   return (
     <>
       {status === STATUS.LOADING ? <Loading /> : null}
@@ -105,16 +114,19 @@ const SingleProductCom = ({ SingleProduct, status }) => {
           </div>
           <div id="pd-button">
             <button id="pd-buyNow">buy now </button>
+
+
             <button id="pd-addCart" onClick={addToCartHandler}>
-              add to cart <FaCartPlus />
+              add to cart
+              <FaCartPlus />
             </button>
           </div>
           {addToCartMessage &&
             <div id="cart-message">
-          {addToCartMessage}
-          </div>
+              {addToCartMessage}
+            </div>
           }
-          
+
         </div>
         <div id="product-description">
           <span id="pd">description</span>

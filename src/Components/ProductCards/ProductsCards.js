@@ -7,48 +7,59 @@ import { STATUS } from '../../Store/ProductSlice'
 import { FaStar } from "react-icons/fa6";
 import Loading from '../Loading/Loading'
 import automaticScrollUp from '../../Utils/ScrollUp';
+import Filter from '../Filter/Filter';
 
 
 const ProductsCards = () => {
 
-
   const dispatch = useDispatch()
   const { data, status } = useSelector((state) => state.product)
+  //search selector
+  const search = useSelector((state) => state.search)
+  //filteration
+  const filteredProducts = data.filter((product) =>
+    product.title.toLowerCase().includes(search.toLowerCase())
+  );
 
   useEffect(() => {
     dispatch(fetchProduct())
   }, [dispatch])
+  //Scroll Up Page
+  automaticScrollUp();
 
   if (status === STATUS.ERROR) {
     return <h2>Conection Failed | Check your internet connection</h2>;
   }
-
-  //Scroll Up Page
-  automaticScrollUp();
   return (
     <>
-      {
-        status === STATUS.LOADING ? <Loading /> : null
-      }
 
-      <div className='Produc-head my-4'>
-        <h1>just for you</h1>
+
+      <div className='main-Product-head' style={{ 'paddingTop': '0px' }}>
+        <div >
+          <span >just </span><span>for </span> <span>you</span>
+        </div>
+
       </div>
-      <hr />
-      <div id='card-wrapper'>
-        <div id='card-main' >
-          {data.map((item) => (
-            <div id="card-body" key={item.id}>
-              <div id="card-img">
-                <img src={item.image} alt="fd" />
-              </div>
+      <Filter />
+      {
+      status === STATUS.LOADING ? <Loading /> : null
+      }
+      <div id='main-card-wrapper'>
+        <div id='product-main-card' >
+          {filteredProducts.map((item) => (
+            <div id="product-card-body" key={item.id}>
+              <Link to={`/product/${item.id}`} >
+                <div id="product-card-img">
+                  <img src={item.image} alt="fd" />
+                </div>
+              </Link>
               <div id="card-title">
-                <h6>{item.title.length > 25 ? `${item.title.slice(0, 30)}...` : item.title}</h6>
+                <h6>{item.title.length > 18 ? `${item.title.slice(0, 30)}...` : item.title}</h6>
               </div>
-              <div id="card-price" >
-                <h5 className='price'>Price - {item.price} Rs </h5>
+              <div id="product-card-price" >
+                <h5 className='product-price'>Price - {item.price} Rs </h5>
               </div>
-              <div id="rating">
+              <div id="product-rating">
                 {[...Array(5)].map((_, index) => (
                   <FaStar
                     key={index}
@@ -61,8 +72,8 @@ const ProductsCards = () => {
                 {/* <p><span style={{'color':'yellow'}}><FaStar/><FaStar/><FaStar/><FaStar/><FaStar/></span>{item.rating.rate} 
                 | Count: {item.rating.count}</p> */}
               </div>
-              <div id="card-checkout" >
-                <Link to={`/product/${item.id}`} id='checkout-btn'>check out</Link>
+              <div id="product-btn" >
+                <Link to={`/product/${item.id}`} id='product-checkout'>check out</Link>
               </div>
             </div>
           ))}

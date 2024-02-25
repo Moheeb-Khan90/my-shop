@@ -5,6 +5,7 @@ import SpecificCategoryREducer from '../SpecificCategorySlice'
 import allProductReducer from '../AllProduct'
 import allCategoryReducer from '../AllCategory'
 import cartReducer from '../AddToCart'
+import searchProduct from '../searchProduct'
 
 export const store = configureStore({
   reducer: {
@@ -13,7 +14,8 @@ export const store = configureStore({
     allProduct: allProductReducer,
     allCategoryProduct:allCategoryReducer,
     SpecificCategory:SpecificCategoryREducer,
-    addToCart : cartReducer
+    addToCart : cartReducer,
+    search : searchProduct
     
   },
 })

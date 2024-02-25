@@ -15,7 +15,7 @@ const Product = () => {
 
   return (
     <>
-      <AllProduct allProduct={data} status={status}/>
+      <AllProduct allProduct={data} status={status} />
     </>
   )
 }

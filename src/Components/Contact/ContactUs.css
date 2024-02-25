@@ -1,17 +1,4 @@
-:root {
-  --primary-background-contact: white;
-  --form-background-color: white;
-  --primary-text: #ffffff;
-  --secondary-background: #6ebe45;
-  --secondary-background-contact: #4fa04b;
-  --secondary-button: #42c102;
-  --secondary-backgroung2: #41aa0c;
-  --secondary-button-hover: #3daf04;
-  --secondary-price: #42c102;
-  --secondary-heading: #eaeaea;
-  --secondary-text: #666666;
-  --secondary-outline: #b4b4b4;
-}
+
 #contact-wrapper {
   width: 100%;
   height: auto;
@@ -29,24 +16,24 @@
 }
 #contact-title {
   width: 60%;
-  height: 42rem;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
   flex-wrap: wrap;
-  background-color: var(--form-background-color);
-  border-right: 1px solid var(--secondary-outline);
 }
 .contact-title {
+  color: var(--orange);
+  font-size: 4rem;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   text-transform: capitalize;
-  color: var(--secondary-text);
   letter-spacing: 0.1rem;
-  font-weight: 800;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
   padding: 1rem 0;
 }
 .contact-des {
@@ -54,7 +41,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   max-width: 42rem;
-  color: var(--secondary-text);
+  color: var(--navy-blue);
   font-size: 1.2rem;
 }
 #contact-form {
@@ -128,30 +115,28 @@
   align-items: center;
 }
 
-.signup-Footer button {
+.contact-Footer button {
   height: 4rem;
   padding: 0.5rem 2.5rem;
-  color: var(--secondary-heading);
+  color: var(--off-white);
   text-transform: capitalize;
   font-size: 1.1rem;
   outline: none;
   border: none;
-  background-color: var(--secondary-button);
+  background-color: var(--orange);
   cursor: pointer;
   transition: 0.5s all;
 }
-.signup-Footer button:hover {
-  color: var(--secondary-heading);
-  background-color: var(--secondary-button-hover);
+.contact-Footer button:hover {
   border-radius: 0.8rem;
 }
-.signup-Footer p {
+.contact-Footer p {
   font-size: 1.1rem;
   color: var(--secondary-text);
 }
 
-.signup-Btn {
-  color: var(--secondary-button);
+.contact-Footer{
+  color: var(--orange);
 }
 @media only screen and (max-width: 992px) {
   #contact-title {
@@ -159,7 +144,10 @@
     height:auto;
     display: flex;
   }
-
+  .contact-title {
+    color: var(--orange);
+    font-size: 2.5rem;
+  }
   #contact-wrapper {
     width: 100%;
     flex-direction: column;

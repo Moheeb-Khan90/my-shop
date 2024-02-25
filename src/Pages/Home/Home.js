@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react'
 
-import Banner from '../../Components/Banner/Banner'
+// import Banner from '../../Components/Banner/Banner'
 import Product from '../../Components/ProductCards/ProductsCards'
-import Filter from '../../Components/Filter/Filter'
 
 
- const Home = () => {
+const Home = () => {
 
 
 
@@ -14,11 +13,7 @@ import Filter from '../../Components/Filter/Filter'
   }, [])
   return (
     <>
-    {/* <Navbar/> */}
-    <Banner/>
-    <Filter/>
-    <Product/>
-    
+      <Product />
     </>
   )
 }

@@ -7,8 +7,8 @@ const ContactUs = () => {
     <>
       <div id="contact-wrapper">
         <div id="contact-title">
-          <div className="contact-title">
-            <h1>contact us</h1>
+          <div >
+            <span className="contact-title">contact us</span>
           </div>
           <div className="contact-des">
             <p>Welcome to our Contact Us page! We appreciate your interest in reaching out to us. Whether you have questions, feedback, or inquiries, we are here to assist you. Please find the various ways you can contact</p>
@@ -29,7 +29,7 @@ const ContactUs = () => {
 
             
           </div>
-          <div className="signup-Footer">
+          <div className="contact-Footer">
           <button>submit</button>
         </div>
         </div>
