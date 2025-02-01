@@ -39,7 +39,7 @@ const Validations = {
       const isValid = Validations.phoneNumberRegex.test(contactNumber);
       return {
           isValid,
-          error: isValid ? '' : 'Invalid contact number. Must be 10 digits.'
+          error: isValid ? '' : 'Invalid contact number'
       };
   }
 };
