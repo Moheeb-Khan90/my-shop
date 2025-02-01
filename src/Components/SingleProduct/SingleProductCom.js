@@ -123,7 +123,7 @@ const SingleProductCom = ({ SingleProduct, status }) => {
           </div>
           {addToCartMessage &&
             <div id="cart-message">
-              {addToCartMessage}
+              {addToCartMessage && addToCartMessage}
             </div>
           }
 
